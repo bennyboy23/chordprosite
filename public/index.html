@@ -19,7 +19,39 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Chord Pro</title>
+<style>
+  html,body,#root{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .chord-editor{
+    display:flex;
+    flex-direction: row;
+    min-height: 50vh;
+  }
+  .panel{
+    flex:1;
+    margin:5px;
+    display: flex;
+    flex-direction: column;
+  }
+  .chord-output{
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  .chord-output td {
+    padding: 0;
+  }
+  .chord-output table{
+    margin:10px 0;
+  }
+  ul{
+    list-style: none;
+  }
+</style>
   </head>
   <body>
     <noscript>
