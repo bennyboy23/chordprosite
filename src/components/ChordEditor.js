@@ -5,16 +5,19 @@ class ChordEditor extends Component {
     constructor(props){
         super(props);
         this.handleChange = this.handleChange.bind(this);
-        this.state = {value: '[A] Type some lyrics here'};
+        //this.state = {value: 'Type some lyrics here'};
     };
 
     handleChange(e){
-        this.setState({value:e.target.value});
+        const song = {...this.props.song};
+        song.chordpro = e.target.value;
+
+        this.props.updateSong(song);
     };
     getChordMarkup(){
-        let formatter = new ChordSheetJs.HtmlFormatter(),
+        const formatter = new ChordSheetJs.HtmlFormatter(),
             parser = new ChordSheetJs.ChordProParser,
-            song = parser.parse(this.state.value);
+            song = parser.parse(this.props.song.chordpro);
 
         return {__html: formatter.format(song)};
     }
@@ -26,7 +29,7 @@ class ChordEditor extends Component {
                    <h3>Input</h3>
                    <textarea style={{width:"100%", height:"100%"}}
                    onChange={this.handleChange}
-                   defaultValue={this.state.value}
+                   defaultValue={this.props.song.chordpro}
                    />
                </div>
                <div className="panel">
