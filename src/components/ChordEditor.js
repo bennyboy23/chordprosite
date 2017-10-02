@@ -19,11 +19,11 @@ class ChordEditor extends Component {
     };
     getChordMarkup(){
         const formatter = new ChordSheetJs.HtmlFormatter(),
-            parser = new ChordSheetJs.ChordProParser,
+            parser = new ChordSheetJs.ChordProParser(),
             song = parser.parse(this.props.song.chordpro);
 
         return {__html: formatter.format(song)};
-    }
+    };
 
     render(){
         return(
