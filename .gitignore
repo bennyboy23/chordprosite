@@ -10,8 +10,9 @@
 /build
 
 # misc
+.env
 .DS_Store
-.env.local
+src/.env
 .env.development.local
 .env.test.local
 .env.production.local

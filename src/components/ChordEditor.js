@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
+import {Breadcrumb} from'@blueprintjs/core';
 import ChordSheetJs from 'chordsheetjs';
+
+
 
 class ChordEditor extends Component {
     constructor(props){
@@ -24,22 +27,28 @@ class ChordEditor extends Component {
 
     render(){
         return(
-           <div className=" chord-editor">
-               <div className="panel">
-                   <h3>Input</h3>
-                   <textarea style={{width:"100%", height:"100%"}}
-                   onChange={this.handleChange}
-                   defaultValue={this.props.song.chordpro}
-                   />
-               </div>
-               <div className="panel">
-                    <h3>Output</h3>
-                   <div style={{width:"100%",height:"100%",fontFamily:"monospace"}}
-                   className="col s6"
-                   dangerouslySetInnerHTML={this.getChordMarkup()}/>
-                    </div>
+            <div>
+                <ul className="pt-breadcrumbs">
+                    <li><Breadcrumb href="/songs" text="songs"/></li>
+                    <li><Breadcrumb href="#" text={this.props.song.title}/></li>
+                </ul>
+                <h2 style={{margin:"0.5em 0"}}>{this.props.song.title}</h2>
+               <div className=" chord-editor">
+                   <div className="panel">
+                       <h3>Input</h3>
+                       <textarea style={{width:"100%", height:"100%"}}
+                       onChange={this.handleChange}
+                       defaultValue={this.props.song.chordpro}
+                       />
+                   </div>
+                   <div className="panel">
+                        <h3>Output</h3>
+                       <div style={{width:"100%",height:"100%",fontFamily:"monospace"}}
+                       className="col s6"
+                       dangerouslySetInnerHTML={this.getChordMarkup()}/>
+                        </div>
+                </div>
             </div>
-
         )
     }
 
